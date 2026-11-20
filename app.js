@@ -5,7 +5,7 @@ console.log("app.js cargado");
 const titulo = document.querySelector("#titulo");
 titulo.textContent = "Hola TECSUP";
 
-titulo.style.color = "blue";
+
 const mensaje = document.querySelector(".mensaje");
 mensaje.classList.add("destacado");
 const lista = document.querySelector("#lista");
@@ -19,7 +19,6 @@ const btnReiniciar = document.querySelector("#btnReiniciar");
 const contador = document.querySelector("#contador");
 let clics = 0;
 btnSumar.addEventListener("mouseover", (evento) => {
-clics = clics + 1;
 contador.textContent = clics;
 console.log(evento.type, evento.target);
 });
@@ -33,7 +32,7 @@ contador.textContent = clics;
 const nombre = document.querySelector("#nombre");
 const saludo = document.querySelector("#saludo");
 nombre.addEventListener("input", () => {
-saludo.textContent = "Hola, " + nombre.value;
+saludo.textContent = "" + nombre.value;
 });
 
 const formulario = document.querySelector("#formulario");
@@ -60,7 +59,7 @@ conDescuento(pct) {
 return this.precio * (1 - pct);
 }
 descripcion() {
-return this.nombre + " - S/ " + this.precio.toFixed(2);
+return " - S/ " + this.precio.toFixed(2);
 }
 }
 const laptop = new Producto("Laptop", 2500);
@@ -100,7 +99,6 @@ const listaCarrito = document.querySelector("#carrito");
 const total = document.querySelector("#total");
 
 formProducto.addEventListener("submit", (evento) => {
-    evento.preventDefault();
     const producto = new Producto(prodNombre.value, Number(prodPrecio.value));
     carrito.agregar(producto);
     const li = document.createElement("li");
